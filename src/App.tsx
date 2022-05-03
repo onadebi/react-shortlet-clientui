@@ -1,9 +1,10 @@
 import React from 'react';
+import PublicLayout from './pages/layout/PublicLayout';
 
 function App() {
   return (
     <div className="app">
-      <h2>Hello world</h2>
+      <PublicLayout/>
     </div>
   );
 }
