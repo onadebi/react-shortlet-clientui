@@ -5,15 +5,17 @@ import {
   faPerson,
   faPlane,
   faTaxi,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from "react-date-range";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import Appsettings from "../../configs/appsettings";
+import { format } from "date-fns";
 import "./header.scss";
+import { IncrementDirectionEnum, PeopleSelectionEnum } from "../common/PeopleBookingCount";
 
 const Header = () => {
+  const [openDate, setOpenDate] = React.useState(false);
   const [date, setDate] = React.useState([
     {
       startDate: new Date(),
@@ -21,6 +23,18 @@ const Header = () => {
       key: "selection",
     },
   ]);
+  const [openOptions, setOpenOptions] = React.useState(false);
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+
+
+  const handleOption=(choice: PeopleSelectionEnum, operation: IncrementDirectionEnum)=>{
+    setOptions((prev) =>{return {...prev, [choice] : operation === IncrementDirectionEnum.INCREASE ? options[choice] + 1 : options[choice] -1}})
+  }
+
   return (
     <div className="header">
       <div className="headerContainer">
@@ -63,20 +77,57 @@ const Header = () => {
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-            <span className="headerSearchText">date to date</span>
-            <DateRange
-              editableDateInputs={true}
-              onChange={(ranges: any) => setDate([ranges.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={date}
-              className='date'
-            />
+            <span
+              onClick={() => setOpenDate(!openDate)}
+              className="headerSearchText"
+            >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
+              date[0].endDate,
+              "dd/MM/yyyy"
+            )}`}</span>
+
+            {openDate && (
+              <DateRange
+                editableDateInputs={true}
+                onChange={(ranges: any) => setDate([ranges.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+                className="date"
+              />
+            )}
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
-            <span className="headerSearchText">
-              2 adults - 0 children - 1 room
+            <span className="headerSearchText" onClick={()=> setOpenOptions(!openOptions)}>
+              {`${options.adult} adult - ${options.children} children - ${options.room} room`}
             </span>
+            {openOptions &&
+            <div className="options">
+              <div className="optionItem">
+                <span className="optionText">Adult</span>
+                <div className="optionCounter">
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.adult, IncrementDirectionEnum.DECREASE)} disabled={options.adult <= 1}>-</button>
+                  <span className="optionCounterNumber">{options.adult}</span>
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.adult, IncrementDirectionEnum.INCREASE)}>+</button>
+                </div>
+              </div>
+              <div className="optionItem">
+                <span className="optionText">Children</span>
+                <div className="optionCounter">
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.children, IncrementDirectionEnum.DECREASE)} disabled={options.children <= 0}>-</button>
+                  <span className="optionCounterNumber">{options.children}</span>
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.children, IncrementDirectionEnum.INCREASE)}>+</button>
+                </div>
+              </div>
+              <div className="optionItem">
+                <span className="optionText">Rooms</span>
+                <div className="optionCounter">
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.room, IncrementDirectionEnum.DECREASE)} disabled={options.room <= 1}>-</button>
+                  <span className="optionCounterNumber">{options.room}</span>
+                  <button className="optionCounterButton" onClick={()=> handleOption(PeopleSelectionEnum.room, IncrementDirectionEnum.INCREASE)}>+</button>
+                </div>
+              </div>
+            </div>
+            }
           </div>
           <div className="headerSearchItem">
             <button className="headerBtn">Search</button>
