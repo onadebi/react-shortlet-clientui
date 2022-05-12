@@ -1,8 +1,17 @@
 import React from "react";
 import Appsettings from "../../configs/appsettings";
+import { useAppStore } from "../../store/contextapi/AppContext";
 import "./navbar.scss";
 
 const Navbar = () => {
+  // #region
+  //TODO: DELETE
+  const appstate = useAppStore();
+  appstate.apiCalls.ChuckCall.list().then((data) =>
+    console.log(JSON.stringify(data))
+  );
+  //#endregion
+
   return (
     <div className="navbar">
       <div className="navContainer">

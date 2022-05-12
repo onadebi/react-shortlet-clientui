@@ -41,7 +41,7 @@ const Header: React.FC<IProps> = ({type = true}) => {
 
   return (
     <div className="header">
-      <div className="headerContainer">
+      <div className={`headerContainer ${!type ? 'listMode': ''}`}>
         <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />

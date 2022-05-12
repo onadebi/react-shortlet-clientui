@@ -5,6 +5,7 @@ import "react-date-range/dist/theme/default.css";
 import { Provider } from "react-redux";
 import storeKeeper from "./store/storeKeeper";
 import App from "./App";
+import { AppContext, appStore } from "./store/contextapi/AppContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={storeKeeper}>
-      <App />
+      <AppContext.Provider value={appStore}>
+        <App />
+      </AppContext.Provider>
     </Provider>
   </React.StrictMode>
 );

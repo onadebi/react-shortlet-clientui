@@ -3,6 +3,7 @@ const Appsettings = {
     cookies:{
         main:'shorletto',
     },
+    baseUrl: 'https://chucknorrisapp.azurewebsites.net/api/',
     functions: {
         createCookieInHour: (cookieName: string, cookieValue: string, hourToExpire: number) => {
             let date = new Date();
@@ -18,6 +19,9 @@ const Appsettings = {
                     return temp.substring(name.length, temp.length);
             }
             return undefined;
+        },
+        ToSentenceUpper(text: string) {
+            return text[0].toUpperCase() + text.slice(1);
         },
         getAllCookies:():string=>{
             return document.cookie;
