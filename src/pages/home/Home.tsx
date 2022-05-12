@@ -12,7 +12,7 @@ const Home = () => {
       <div className="homeBodyContainer">
         <h1 className="homeTitle">Browse by property type</h1>
         <PropertyList/>
-        <h1 className="homeTitle">Apartments guest love</h1>
+        <h1 className="homeTitle">Places guests love</h1>
         <FeaturedProperties/>
       </div>
       </div>

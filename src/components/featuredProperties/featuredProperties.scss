@@ -1,3 +1,46 @@
+$blueShadeColor: #003580;
+
 .featuredProperties{
-    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    justify-content: space-between;
+
+    .fpItem{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+
+        .fpImg{
+            width: 100%;
+            // border-radius: 10px;
+        }
+
+        .fpName{
+            font-weight: bold;
+        }
+        .fpStateCity{
+            font-weight: 300;
+        }
+        .fpPrice{font-weight: 500;}
+        .fpRating{
+
+            span{
+                font-size: 14px;
+            }
+
+            button{
+                background-color: $blueShadeColor;
+                color:#fff;
+                border: none;
+                padding: 3px;
+                margin-right: 10px;
+                border-radius: 50%;
+                object-fit: cover;
+                font-weight: bold;
+            }
+        }
+    }
 }
