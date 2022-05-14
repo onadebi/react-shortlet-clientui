@@ -1,3 +1,6 @@
+
+@import '../../components/common/styles/measurements';
+
 .home{
     
     .homeContainer{
@@ -11,7 +14,8 @@
     .homeBodyContainer{
         margin: 0px;
         width: 100%;
-        max-width: 1024px;
+        max-width: $containerMaxWidth;
+        // background-color: red;
 
         .homeTitle{
             width: 100%;

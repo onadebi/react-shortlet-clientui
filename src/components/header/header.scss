@@ -1,16 +1,17 @@
-$navColor: #003580;
+@import '../common/styles/_colors.scss';
+@import '../common/styles/measurements';
 
 .header {
   display: flex;
   gap: 15px;
-  background-color: $navColor;
+  background-color: $blueShadeColor;
   color: #fff;
   justify-content: center;
   position: relative;
 
   .headerContainer {
     width: 100%;
-    max-width: 1024px;
+    max-width: $containerMaxWidth;
     margin: 20px 0px 100px 0px;
 
     &.listMode{

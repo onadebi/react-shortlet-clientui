@@ -1,0 +1,21 @@
+@import '../common/styles/_colors.scss';
+@import '../common/styles/measurements';
+
+.footer{
+    width: 100%;
+    font-size: 12px;
+    max-width: $containerMaxWidth;
+
+    .fLists{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        .fList{
+            list-style: none;
+            padding: 0px;
+        }
+    }
+
+}
