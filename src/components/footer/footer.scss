@@ -15,6 +15,12 @@
         .fList{
             list-style: none;
             padding: 0px;
+
+            .fListItem{
+                margin-bottom: 10px;
+                cursor: pointer;
+                color: $blueShadeColor;
+            }
         }
     }
 

@@ -6,11 +6,6 @@ export let homeTest = jest;
 
 
 describe("Home component testing", () => {
-  test("New test", () => {
-    const result = 1 + 1;
-    expect(result).toBe(2);
-  });
-
   
   test('Home render test', ()=>{
      render(<Header type={true}/>);
@@ -18,6 +13,7 @@ describe("Home component testing", () => {
     expect(search).toBeInTheDocument();
   })
 
+  
 
   
 });

@@ -1,32 +1,42 @@
-@import '../common/styles/measurements';
-@import '../common/styles/colors';
+@import "../common/styles/measurements";
+@import "../common/styles/colors";
 
-.navbar{
-    height: 50px;
-    background-color: $blueShadeColor;
+.navbar {
+  height: 50px;
+  background-color: $blueShadeColor;
+  display: flex;
+  justify-content: center;
+
+  .navContainer {
     display: flex;
-    justify-content: center;
-    
-    .navContainer{
-        display: flex;
-        width:100%;
-        max-width: $containerMaxWidth;
-        align-items: center;
-        justify-content: space-between;
-        color:#fff;
-        padding:0px 5px
-    }
+    width: 100%;
+    max-width: $containerMaxWidth;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    padding: 0px 5px;
 
-    .logo{
-        font-weight: 500;
-    }
+    .logo {
+      & > a {
+        text-decoration: none;
+        color: #fff;
+      }
 
-    .navButton{
-        margin-left: 20px;
-        border:none;
-        padding: 5px 10px;
-        color: $blueShadeColor;
-        cursor: pointer;
+      & > a:hover {
+        text-decoration: underline;
+      }
     }
+  }
 
+  .logo {
+    font-weight: 500;
+  }
+
+  .navButton {
+    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    color: $blueShadeColor;
+    cursor: pointer;
+  }
 }

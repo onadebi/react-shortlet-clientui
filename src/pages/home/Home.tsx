@@ -1,4 +1,5 @@
 import React from "react";
+import HelmetTag from "../../components/common/HelmetTag";
 import Featured from "../../components/featured/Featured";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import Footer from "../../components/footer/Footer";
@@ -9,6 +10,7 @@ import "./home.scss";
 const Home = () => {
   return (
     <div className="home">
+      <HelmetTag title="Shortlet/Apartments booking space"/>
       <div className="homeContainer">
         <Featured />
         <div className="homeBodyContainer">
