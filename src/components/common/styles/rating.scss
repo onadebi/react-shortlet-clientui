@@ -1,0 +1,19 @@
+@import './colors';
+
+.fpRating{
+
+    span{
+        font-size: 14px;
+    }
+
+    button{
+        background-color: $blueShadeColor;
+        color:#fff;
+        border: none;
+        padding: 3px;
+        margin-right: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+        font-weight: bold;
+    }
+}

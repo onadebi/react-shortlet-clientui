@@ -32,9 +32,8 @@ const List = () => {
 
   React.useEffect(() => {    
     UtilityHelper.functions.geolocate()
-    .then((data)=>
-    { debugger;
-      setDestination(`${data.longitude} - ${data.latitude}`)}).catch((err)=>console.log(err));
+    .then((data)=>{//setDestination(`${data.longitude} - ${data.latitude}`)
+  }).catch((err)=>console.log(err));
   }, []);
 
   return (
@@ -115,6 +114,11 @@ const List = () => {
           <button>Search</button>
         </div>
         <div className="listResult">
+          <SearchItem />
+          <SearchItem />
+          <SearchItem />
+          <SearchItem />
+          <SearchItem />
           <SearchItem />
         </div>
       </div>

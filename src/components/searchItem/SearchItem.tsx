@@ -1,5 +1,7 @@
 import React from "react";
+import Appsettings from "../../configs/appsettings";
 import "./searchItem.scss";
+
 
 const SearchItem = () => {
   return (
@@ -30,7 +32,7 @@ const SearchItem = () => {
           <button>8.9</button>
         </div>
         <div className="siDetailTexts">
-          <span className="siPrice">$112</span>
+          <span className="siPrice">{`₦${Appsettings.functions.NumberCommaFormat(112)}`}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
           <button className="siCheckButton">See availability</button>
         </div>

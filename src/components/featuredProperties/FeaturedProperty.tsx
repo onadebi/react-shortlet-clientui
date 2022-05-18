@@ -1,5 +1,6 @@
 import React from "react";
 import Appsettings from "../../configs/appsettings";
+import Rating from "../common/Rating";
 
 interface IProps{
     ratingScore: number ;
@@ -23,10 +24,11 @@ const FeaturedProperty: React.FC<IProps> = ({ratingScore: rating =0,name,stateCi
       <span className="fpPrice">
         Starting from ₦{Appsettings.functions.NumberCommaFormat(price)}{" "}
       </span>
-      <span className="fpRating">
+      <Rating ratingComment={ratingComment} ratingScore={rating} showRatingComment/>
+      {/* <span className="fpRating">
         <button style={styleRating}>{rating}</button>
         <span>{ratingComment}</span>
-      </span>
+      </span> */}
     </div>
   );
 };
