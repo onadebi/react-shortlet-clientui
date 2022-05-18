@@ -57,7 +57,7 @@ const Header: React.FC<IProps> = ({ type = true }) => {
   };
 
   const handleSearch = () => {
-    navigate("/searchresults", { state: { destination, date, options } });
+    navigate("/spacesresults", { state: { destination, date, options } });
   };
 
   return (

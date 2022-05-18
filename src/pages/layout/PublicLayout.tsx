@@ -11,6 +11,8 @@ import { v4 as uuid } from "uuid";
 import "./publiclayout.scss";
 import NotFound from "../notfound/NotFound";
 import HelmetTag from "../../components/common/HelmetTag";
+import MailList from "../../components/mainList/MailList";
+import Footer from "../../components/footer/Footer";
 
 const PublicLayout = () => {
   const userCookie = Appsettings.functions.getCookieByName(
@@ -40,12 +42,14 @@ const PublicLayout = () => {
           <Routes>
             <Route path="/">
               <Route index element={<Home />} />
-              <Route path="searchresults" element={<List />} />
-              <Route path="searchresults/:id" element={<Shortel />} />
+              <Route path="spacesresults" element={<List />} />
+              <Route path="spaces/:id" element={<Shortel />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
+        <MailList />
+        <Footer/>
       </div>
     </HelmetProvider>
   );

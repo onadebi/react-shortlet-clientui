@@ -1,9 +1,17 @@
-import React from "react";
+import React, { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import Appsettings from "../../configs/appsettings";
 import "./searchItem.scss";
 
 
 const SearchItem = () => {
+
+  const navigate = useNavigate();
+
+  const SpaceCheck =(e: FormEvent<HTMLButtonElement>)=>{
+    e.preventDefault();
+    navigate(`/spaces/${'125-y76erh-242'}`)
+  }
   return (
     <div className="searchItem">
       <img
@@ -34,7 +42,7 @@ const SearchItem = () => {
         <div className="siDetailTexts">
           <span className="siPrice">{`₦${Appsettings.functions.NumberCommaFormat(112)}`}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
-          <button className="siCheckButton">See availability</button>
+          <button className="siCheckButton" onClick={SpaceCheck}>See availability</button>
         </div>
       </div>
     </div>
