@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { HelmetProvider } from "react-helmet-async";
 import Appsettings from "../../configs/appsettings";
 import Home from "../home/Home";
-import Shortel from "../hotel/Shortel";
+import Space from "../space/Space";
 import List from "../list/List";
 import { v4 as uuid } from "uuid";
 import "./publiclayout.scss";
@@ -43,7 +43,7 @@ const PublicLayout = () => {
             <Route path="/">
               <Route index element={<Home />} />
               <Route path="spacesresults" element={<List />} />
-              <Route path="spaces/:id" element={<Shortel />} />
+              <Route path="spaces/:id" element={<Space />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
