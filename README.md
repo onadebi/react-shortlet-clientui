@@ -1,3 +1,3 @@
-# Hotel/Shortlet ClientUI booking application
+# Spaces/Shortlet ClientUI booking application
 
 > To run: `yarn start`
